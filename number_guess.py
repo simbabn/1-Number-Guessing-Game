@@ -2,7 +2,7 @@ import random
 print("Welcome to Guess Number Game !")
 
 def try_err(u_guess,num):
-    if u_guess < num:           # You had the roles of u_guess and num reversed
+    if u_guess < num:           
         print("It's more!")
         return False
     elif u_guess > num:
