@@ -1,16 +1,28 @@
 import random
+print("Welcome to Guess Number Game !")
 
-guess_number = random.randrange(1,10)
+def try_err(u_guess,num):
+    if u_guess < num:           # You had the roles of u_guess and num reversed
+        print("It's more!")
+        return False
+    elif u_guess > num:
+        print("It's less")
+        return False
+    else:  # u_guess == num
+        print('You got it!')
+        return True
 
-value = int(input("Chose a number between 1 and 10 : "))
+def guess():
+    guess_number = random.randint(1, 10)
+    while True:
+        while True:
+            value = input('Chose a number between 1 and 10 : ')
+            try:
+                value = int(value)
+                break
+            except ValueError:
+                print('Enter a valid number, try again!')
+        if try_err(value, guess_number):
+            break
 
-while guess_number != value:
-    if value < guess_number:
-        print("is more")
-        value = int(input("Enter number again: "))
-    elif value > guess_number:
-        print("is less")
-        value = int(input("Enter number again: "))
-    else :
-        break
-print("You find it!")
+guess()
